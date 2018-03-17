@@ -15,6 +15,18 @@
 			org.springframework.web.context.ContextLoaderListener
 		</listener-class>
 	</listener>
+	
+	<!-- agregando security filters -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filterDelegatingFilterProxy</filter-class>
+	</filter>
+	<!-- especificamos las url que queremos securizar en este caso toda la webapp -->
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
 	<servlet>
 		<description>Apache CXF Endpoint</description>
 		<display-name>cxf</display-name>
